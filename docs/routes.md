@@ -15,12 +15,12 @@
 |VERBE|ROUTE|DESCRIPTION|
 |------|------|------|  
 |GET | `/cards`| récupérer toutes les cartes |
-|GET | `/cards/:id`| récupérer une carte |
+|GET | `/cards/:id`| récupérer une carte avec ses tags|
 |POST | `/cards`| créer une carte |
 |PUT | `/cards/:id`| modifier une carte |
 |DELETE | `/cards/:id`| supprimer une carte |
-|POST | `/cards/:id/tags`| ajouter un tag à une carte |
-|DELETE | `/cards/:id/tags`| supprimer un tag d'une carte |
+|POST | `/cards/:id/tags`| ajouter un tag à une carte (:id désigne l'id de la card, l'id du tag à ajouté sera dans le corps de la requête) |
+|DELETE | `/cards/:id/tags/:tagId`| supprimer un tag d'une carte |
 
 ## Tag
 
