@@ -3,9 +3,9 @@ const { Router } = require('express');
 const cardsRouter = Router();
 const cardsController = require('../controllers/cardsController');
 const { body } = require('express-validator');
-// ce fichier a été use() par l'app express avec un préfixe "/lists", donc pour gérer l'url "/cards/:id" par exemple, il ne faudra préciser que "/:id".
+// ce fichier a été use() par l'app express avec un préfixe "/cards", donc pour gérer l'url "/cards/:id" par exemple, il ne faudra préciser que "/:id".
 
-// route GET '/lists/'
+// route GET '/cards/'
 cardsRouter.get('/', cardsController.getAll);
 cardsRouter.get('/:cardId', cardsController.getOne);
 // on utilise body(nomdelapropriété).escape() pour supprimer le HTML éventuellement présent dans la propriété
