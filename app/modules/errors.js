@@ -3,7 +3,8 @@ const errors = {
         res.status(500).json({
             statusCode: 500,
             message: "Server error",
-            fullErrorMessage: err
+            // on utilise toString() pour récupérer le message d'erreur "épuré"
+            fullErrorMessage: err.toString()
         });
     },
     error400: (res) => {

@@ -19,11 +19,13 @@ app.use(cors());
 require('./app/models/models');
 
 const listsRouter = require('./app/routers/listsRouter');
+const cardsRouter = require('./app/routers/cardsRouter');
 
 // on récupère les routeurs
 // quand on précise à notre app quels fichiers de routage utiliser, on peut y associer un préfixe d'url
 // => ici on crée un routeur pour chaque ressource, on préfixera donc chaque appel avec l'url qui identifie cette ressource
 app.use('/lists', listsRouter);
+app.use('/cards', cardsRouter);
 
 // middleware 404
 app.use((req, res) => {

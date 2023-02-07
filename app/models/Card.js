@@ -16,6 +16,11 @@ Card.init({
     },
     color: { 
         type: DataTypes.STRING
+    },
+    listId: {
+        type: DataTypes.INTEGER,
+        allowNull : false,
+        field: "list_id"
     }
 }, {
     sequelize,
