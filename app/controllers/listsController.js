@@ -1,5 +1,6 @@
 const List = require('../models/List');
 const Card = require('../models/Card');
+const errors = require('../modules/errors');
 
 const listController = {
     // contrôleur pour la route /lists/
@@ -27,11 +28,8 @@ const listController = {
             // réponse au format json
             res.json(list);
         } catch(err) {
-            res.status(500).json({
-                statusCode: 500,
-                message: "Server error",
-                fullErrorMessage: err
-            });
+            // on utilise le module errors pour générer une erreur 500
+            errors.error500(res, err);
         }
     }, 
     create: async (req, res, next) => {
@@ -42,10 +40,7 @@ const listController = {
         // typeof renvoie sous forme de string le type de l'élément analysé
         // ici name doit être une string et faire plus de 1 caractère
         if (typeof name != 'string' || name.length < 2) {
-            res.status(400).json({
-                statusCode: 400,
-                message: "Bad request"
-            });
+            errors.error400(res);
         }
 
         try {
@@ -56,11 +51,7 @@ const listController = {
             // retourner ce model au format json
             res.json(list);
         } catch(err) {
-            res.status(500).json({
-                statusCode: 500,
-                message: "Server error",
-                fullErrorMessage: err
-            });
+            errors.error500(res, err);
         }
     },
     update:  async (req, res, next) => {
@@ -86,11 +77,7 @@ const listController = {
             res.json(list);
         }
         catch(err) {
-            res.status(500).json({
-                statusCode: 500,
-                message: "Server error",
-                fullErrorMessage: err
-            });
+            errors.error500(res, err);
         }
     },
     delete: async (req, res, next) => {
@@ -107,11 +94,7 @@ const listController = {
             res.json(list);
         }
         catch(err) {
-            res.status(500).json({
-                statusCode: 500,
-                message: "Server error",
-                fullErrorMessage: err
-            });
+            errors.error500(res, err);
         }
     }
 }
