@@ -2,10 +2,17 @@
 require('dotenv').config();
 const express = require('express');
 const PORT = process.env.PORT || 1337;
+const cors = require('cors');
 const app = express();
+
+// il faut que notre API 
 
 // on précise à notre app qu'on va recevoir du JSON
 app.use(express.json());
+
+// on autorise les requêtes depuis d'autres domaines que celui de notre API
+// important => appeler ce middleware avant le routeur
+app.use(cors());
 
 // on "exécute" les associations Sequelize
 // une fois que ce fichier a été interprété, il n'y a pas besoin de le refaire
